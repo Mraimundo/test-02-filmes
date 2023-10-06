@@ -29,7 +29,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--background) url(${githubBackground}) no-repeat 70% top;
+    background: ${(props) =>
+      props.theme["background"]} url(${githubBackground}) no-repeat 70% top;
     -webkit-font-smoothing: antialiased;
   }
 

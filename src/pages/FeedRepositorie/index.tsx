@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { MdFavorite } from "react-icons/md";
 
 import logoImg from "../../assets/logo.svg";
 
 import * as S from "./styles";
 
-import { useRepository } from "../../hooks/repository";
+// import { useRepository } from "../../hooks/repository";
+import { RepositoryItem } from "../../components/RepositoryItem";
 
 export function FeedRepositorie() {
-  const { repositories, like, unlike } = useRepository();
+  // const { repositories, like, unlike } = useRepository();
 
   return (
     <S.Container>
@@ -21,28 +21,7 @@ export function FeedRepositorie() {
       </header>
       <S.Title>Explore repositórios no Github</S.Title>
 
-      {repositories.length && (
-        <S.Repositories>
-          {repositories?.map((repos) => (
-            <section key={repos.id}>
-              <img src={repos.owner.avatar_url} alt={repos.owner.login} />
-              <div>
-                <strong>{repos.full_name}</strong>
-                <p>{repos.description}</p>
-                <span>{repos.owner.url}</span>
-              </div>
-
-              <button
-                onClick={() =>
-                  repos.like ? unlike(Number(repos.id)) : like(Number(repos.id))
-                }
-              >
-                <MdFavorite size={24} color={repos.like ? "red" : "#3a3a3a"} />
-              </button>
-            </section>
-          ))}
-        </S.Repositories>
-      )}
+      <RepositoryItem />
     </S.Container>
   );
 }
