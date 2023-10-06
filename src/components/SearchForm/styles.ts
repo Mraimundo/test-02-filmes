@@ -1,44 +1,7 @@
-import styled, { css } from "styled-components";
+import { styled } from "styled-components";
 import { shade } from "polished";
 
-type FormProps = {
-  hasError: boolean;
-};
-
-export const Container = styled.div`
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-
-    nav {
-      display: flex;
-      align-items: center;
-
-      a {
-        display: block;
-        margin-left: 10px;
-        padding: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: ${(props) => props.theme["gray-200"]};
-      }
-    }
-  }
-`;
-
-export const Title = styled.h1`
-  font-size: 48px;
-  color: ${(props) => props.theme["gray-200"]};
-
-  max-width: 450px;
-  line-height: 56px;
-  padding: 30px 0px 15px 0px;
-`;
-
-export const SearchForm = styled.form<FormProps>`
+export const SearchFormContainer = styled.form`
   max-width: 900px;
   display: flex;
   gap: 1rem;
@@ -50,13 +13,6 @@ export const SearchForm = styled.form<FormProps>`
     background: ${(props) => props.theme["white"]};
     color: ${(props) => props.theme["gray-500"]};
     padding: 1rem;
-    border: 2px solid #fff;
-
-    ${(props) =>
-      props.hasError &&
-      css`
-        border-color: #c53030;
-      `}
 
     &::placeholder {
       color: ${(props) => props.theme["gray-500"]};
@@ -89,10 +45,4 @@ export const SearchForm = styled.form<FormProps>`
       transition: background-color 0.2s, color 0.2s border-color 0.2s;
     }
   }
-`;
-
-export const Error = styled.span`
-  display: block;
-  color: #c53030;
-  margin-top: 10px;
 `;

@@ -1,20 +1,28 @@
 import styled from "styled-components";
 
 export const Repositories = styled.div`
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  padding: 40px 0 35px 0;
   max-width: 900px;
 
-  section {
+  a {
     background: #fff;
     border-radius: 5px;
     width: 100%;
     padding: 24px;
+    display: block;
+    text-decoration: none;
 
     display: flex;
     align-items: center;
+    transition: transform 0.2s;
 
-    & + section {
+    & + a {
       margin-top: 16px;
+    }
+
+    &:hover {
+      transform: translateX(10px);
     }
 
     img {
@@ -24,7 +32,8 @@ export const Repositories = styled.div`
     }
 
     div {
-      margin-left: 16px;
+      margin: 0 16px;
+      flex: 1;
 
       strong {
         font-size: 20px;
@@ -44,14 +53,9 @@ export const Repositories = styled.div`
       }
     }
 
-    button {
-      border: none;
-      background: none;
+    svg {
       margin-left: auto;
-
-      svg {
-        color: #cbcbd6;
-      }
+      color: ${(props) => props.theme["gray-300"]};
     }
   }
 `;
