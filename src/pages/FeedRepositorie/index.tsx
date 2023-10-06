@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
@@ -27,7 +27,23 @@ export type RepositoryData = {
 export function FeedRepositorie() {
   const [newRepo, setNewRepo] = useState("");
   const [inputError, setInputError] = useState("");
-  const [repositories, setRepositories] = useState<RepositoryData[]>([]);
+  const [repositories, setRepositories] = useState<RepositoryData[]>(() => {
+    const storagedRepositories = localStorage.getItem(
+      "@GithubFeed:repositories"
+    );
+
+    if (storagedRepositories) {
+      return JSON.parse(storagedRepositories);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "@GithubFeed:repositories",
+      JSON.stringify(repositories)
+    );
+  }, [repositories]);
 
   async function handleSearchRepo(
     event: FormEvent<HTMLFormElement>
