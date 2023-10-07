@@ -1,15 +1,11 @@
 import { useState, FormEvent, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-
-import logoImg from "../../assets/logo.svg";
-
-import * as S from "./styles";
-
 import { RepositoryItem } from "../../components/RepositoryItem";
 import { api } from "../../services/api";
+import { Header } from "./components/Header";
+import * as S from "./styles";
 
-type Repos = {
+export type RepositoryData = {
   id: number;
   full_name: string;
   description: string;
@@ -18,10 +14,6 @@ type Repos = {
     avatar_url: string;
     url: string;
   };
-};
-
-export type RepositoryData = {
-  repositories: Repos[];
 };
 
 export function FeedRepositorie() {
@@ -68,20 +60,15 @@ export function FeedRepositorie() {
 
   return (
     <S.Container>
-      <header>
-        <img src={logoImg} alt="Logo" />
-        <nav>
-          <Link to="/">Feed</Link>
-          <Link to="like-repositories">Like</Link>
-        </nav>
-      </header>
+      <Header />
+
       <S.Title>Explore repositórios no Github</S.Title>
       <S.SearchForm hasError={!!inputError} onSubmit={handleSearchRepo}>
         <input
           type="text"
           value={newRepo}
           onChange={(e) => setNewRepo(e.target.value)}
-          placeholder="Busque por repositório"
+          placeholder="Busque por repositório (autor/nome)"
         />
 
         <button type="submit">
@@ -91,7 +78,9 @@ export function FeedRepositorie() {
       </S.SearchForm>
       {inputError && <S.Error>{inputError}</S.Error>}
 
-      <RepositoryItem repositories={repositories} />
+      {repositories.map((repository) => {
+        return <RepositoryItem key={repository.id} repository={repository} />;
+      })}
     </S.Container>
   );
 }

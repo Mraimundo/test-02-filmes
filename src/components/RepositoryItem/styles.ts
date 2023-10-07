@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const Repositories = styled.div`
-  /* margin-top: 50px; */
-  padding: 40px 0 35px 0;
   max-width: 900px;
+
+  & + div {
+    margin: 20px 0 18px 0;
+  }
 
   a {
     background: #fff;
@@ -16,10 +18,6 @@ export const Repositories = styled.div`
     display: flex;
     align-items: center;
     transition: transform 0.2s;
-
-    & + a {
-      margin-top: 16px;
-    }
 
     &:hover {
       transform: translateX(10px);

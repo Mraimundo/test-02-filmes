@@ -4,8 +4,6 @@ import { api } from "../services/api";
 
 type RepositoryContextData = {
   repositories: Repos[];
-  like(id: number): void;
-  unlike(id: number): void;
 };
 
 export type Repos = {
@@ -58,29 +56,8 @@ const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem("@GithubExplorer:repositories", JSON.stringify(repos));
   }, [repos]);
 
-  const like = (id: number) => {
-    const tmp = [...repos];
-
-    tmp.map((item) => {
-      if (item.id === id) {
-        item.like = true;
-      }
-    });
-    setRepos(tmp);
-  };
-
-  const unlike = (id: number) => {
-    const tmp = [...repos];
-    tmp.map((item) => {
-      if (item.id === id) {
-        item.like = false;
-      }
-    });
-    setRepos((state) => tmp);
-  };
-
   return (
-    <RepositoryContext.Provider value={{ repositories: repos, like, unlike }}>
+    <RepositoryContext.Provider value={{ repositories: repos }}>
       {children}
     </RepositoryContext.Provider>
   );
