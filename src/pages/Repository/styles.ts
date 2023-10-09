@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../components/BreakPoints";
 
 export const Header = styled.header`
   max-width: 900px;
@@ -29,7 +30,7 @@ export const Logo = styled.div`
   a {
     text-decoration: none;
     color: ${(props) => props.theme["gray-900"]};
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: bold;
     cursor: pointer;
   }
@@ -52,12 +53,16 @@ export const RepositoryInfo = styled.section`
       margin-left: 30px;
 
       strong {
-        font-size: 36px;
+        font-size: 2rem;
         color: #3d3d4d;
+
+        @media ${device.desktop} {
+          font-size: 2.25rem;
+        }
       }
 
       p {
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #737373;
         margin-top: 6px;
       }
@@ -71,12 +76,20 @@ export const RepositoryInfo = styled.section`
 
     li {
       & + li {
-        margin-left: 80px;
+        margin-left: 30px;
+
+        @media ${device.desktop} {
+          margin-left: 80px;
+        }
       }
       strong {
         display: block;
-        font-size: 36px;
+        font-size: 2rem;
         color: #3d3d4d;
+
+        @media ${device.desktop} {
+          font-size: 2.25rem;
+        }
       }
 
       span {
@@ -89,14 +102,14 @@ export const RepositoryInfo = styled.section`
 `;
 
 export const Issues = styled.div`
-  padding: 40px 0 35px 0;
+  padding: 2.5rem 0 2.1875rem 0;
   max-width: 900px;
 
   a {
     background: #fff;
     border-radius: 5px;
     width: 100%;
-    padding: 24px;
+    padding: 1.5rem;
     display: block;
     text-decoration: none;
 
@@ -117,18 +130,18 @@ export const Issues = styled.div`
       flex: 1;
 
       strong {
-        font-size: 20px;
+        font-size: 1.25rem;
         color: #3d3d4d;
       }
 
       p {
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #a8a8b3;
         margin-top: 4px;
       }
 
       span {
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #a8a8b3;
         margin-top: 4px;
       }

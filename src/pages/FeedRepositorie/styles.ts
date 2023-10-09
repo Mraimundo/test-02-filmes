@@ -8,12 +8,12 @@ type FormProps = {
 export const Container = styled.div``;
 
 export const Title = styled.h2`
-  font-size: 35px;
+  font-size: 2.1875rem;
   color: ${(props) => props.theme["gray-200"]};
 
   max-width: 450px;
   line-height: 40px;
-  padding: 20px 0px 15px 0px;
+  padding: 1.25rem 0 0.9375rem 0;
 `;
 
 export const SearchForm = styled.form<FormProps>`

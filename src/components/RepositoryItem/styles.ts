@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../BreakPoints";
 
 export const Repositories = styled.div`
   max-width: 900px;
@@ -11,7 +12,7 @@ export const Repositories = styled.div`
     background: #fff;
     border-radius: 5px;
     width: 100%;
-    padding: 24px;
+    padding: 1.5rem;
     display: block;
     text-decoration: none;
 
@@ -34,20 +35,24 @@ export const Repositories = styled.div`
       flex: 1;
 
       strong {
-        font-size: 20px;
+        font-size: 1.25rem;
         color: #3d3d4d;
       }
 
       p {
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #a8a8b3;
         margin-top: 4px;
       }
 
       span {
-        font-size: 18px;
+        font-size: 1rem;
         color: #a8a8b3;
         margin-top: 4px;
+
+        @media ${device.desktop} {
+          font-size: 1.125rem;
+        }
       }
     }
 
