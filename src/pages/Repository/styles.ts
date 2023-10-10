@@ -106,7 +106,7 @@ export const Issues = styled.div`
   max-width: 900px;
 
   a {
-    background: #fff;
+    background: ${(props) => props.theme["white"]};
     border-radius: 5px;
     width: 100%;
     padding: 1.5rem;

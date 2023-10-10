@@ -29,12 +29,12 @@ export const SearchForm = styled.form<FormProps>`
     background: ${(props) => props.theme["white"]};
     color: ${(props) => props.theme["gray-500"]};
     padding: 1rem;
-    border: 2px solid #fff;
+    border: 2px solid ${(props) => props.theme["white"]};
 
     ${(props) =>
       props.HasError &&
       css`
-        border-color: #c53030;
+        border-color: ${(props) => props.theme["red-200"]};
       `}
 
     &::placeholder {
@@ -72,6 +72,6 @@ export const SearchForm = styled.form<FormProps>`
 
 export const Error = styled.span`
   display: block;
-  color: #c53030;
+  color: ${(props) => props.theme["red-200"]};
   margin-top: 10px;
 `;
