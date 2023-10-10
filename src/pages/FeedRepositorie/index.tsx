@@ -4,17 +4,11 @@ import { RepositoryItem } from "../../components/RepositoryItem";
 import { api } from "../../services/api";
 import { Header } from "./components/Header";
 import * as S from "./styles";
+import { RepositoryData } from "../../types";
 
-export interface RepositoryData {
-  id: number;
-  full_name: string;
-  description: string;
-  owner: {
-    login: string;
-    avatar_url: string;
-    url: string;
-  };
-}
+// This function Lists public repositories based on a search field
+// And then save the repo list to local storage
+// When clicking on a list item, show details
 
 export function FeedRepositorie() {
   const [newRepo, setNewRepo] = useState("");
@@ -63,7 +57,7 @@ export function FeedRepositorie() {
       <Header />
 
       <S.Title>Explore repositórios no Github</S.Title>
-      <S.SearchForm hasError={!!inputError} onSubmit={handleSearchRepo}>
+      <S.SearchForm HasError={!!inputError} onSubmit={handleSearchRepo}>
         <input
           type="text"
           value={newRepo}

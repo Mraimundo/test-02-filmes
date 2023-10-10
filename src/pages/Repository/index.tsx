@@ -2,36 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import * as S from "./styles";
-import logoImg from "../../assets/logo.svg";
 import { api } from "../../services/api";
+import { RepositoryProps, Issue } from "../../types";
 
-type Repository = {
-  id: number;
-  full_name: string;
-  description: string;
-  stargazers_count: number;
-  forks_count: number;
-  open_issues_count: number;
-  owner: {
-    login: string;
-    avatar_url: string;
-  };
-};
-
-type Issue = {
-  id: number;
-  title: string;
-  html_url: string;
-  user: {
-    login: string;
-  };
-};
+// This function shows the details of the list of repositories and issues
+// When clicking on an item in the issues list, it redirects to an external link
+// with the repository issue
 
 export function Repository() {
   let params = useParams();
   const repositoryParams = `${params.repository}/${params["*"]}`;
 
-  const [repository, setRepository] = useState<Repository | null>(null);
+  const [repository, setRepository] = useState<RepositoryProps | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {

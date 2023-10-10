@@ -2,19 +2,7 @@ import { FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 import * as S from "./styles";
-
-export type RepositoryItemProps = {
-  repository: {
-    id: number;
-    full_name: string;
-    description: string;
-    owner: {
-      login: string;
-      avatar_url: string;
-      url: string;
-    };
-  };
-};
+import { RepositoryItemProps } from "../../types";
 
 export function RepositoryItem(props: RepositoryItemProps) {
   const { id, full_name, description, owner } = props.repository;
