@@ -5,7 +5,7 @@ import { api } from "../../services/api";
 import { Header } from "./components/Header";
 import * as S from "./styles";
 
-export type RepositoryData = {
+export interface RepositoryData {
   id: number;
   full_name: string;
   description: string;
@@ -14,7 +14,7 @@ export type RepositoryData = {
     avatar_url: string;
     url: string;
   };
-};
+}
 
 export function FeedRepositorie() {
   const [newRepo, setNewRepo] = useState("");
