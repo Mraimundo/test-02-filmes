@@ -28,13 +28,13 @@ describe("Repository", () => {
     const linkElement = screen.getByText("Voltar");
     expect(linkElement).toBeInTheDocument();
 
-    // Verifica se o link existe
+    // Check if the link exists
     expect(linkElement).toBeInTheDocument();
 
-    // Simula um clique no link
+    // Simulates a click on the link
     fireEvent.click(linkElement);
 
-    // Verifica se a URL mudou para a página principal.
+    // Checks if the URL has changed to the main page.
     expect(window.location.pathname).toBe("/");
   });
 });
