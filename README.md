@@ -56,6 +56,9 @@ $ npm run dev
 
 $ em seguida localhost:3000 em seu navegador.
 
+# Rodar os testes
+$ npm run test
+
 ```
 
 Feito com horas em frente ao :computer: por [Mouzinho Raimundo](https://www.linkedin.com/in/mouzinho-raimundo/)
