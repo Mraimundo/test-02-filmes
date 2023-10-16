@@ -59,6 +59,9 @@ $ npm run dev
 
 $ em seguida localhost:3000 em seu navegador.
 
+# Para bustar o repositório é necessário digitar no campo de busca o seguinte:
+$ Autor do repostório e nome do repositório (autor/repositório) => (facebook/react).
+
 # Rodar os testes
 $ npm run test
 
