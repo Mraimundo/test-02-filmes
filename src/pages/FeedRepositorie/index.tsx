@@ -57,7 +57,7 @@ export function FeedRepositorie() {
       <Header />
 
       <S.Title>Explore repositórios no Github</S.Title>
-      <S.SearchForm HasError={!!inputError} onSubmit={handleSearchRepo}>
+      <S.SearchForm hasError={!!inputError} onSubmit={handleSearchRepo}>
         <input
           type="text"
           value={newRepo}

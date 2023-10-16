@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { shade } from "polished";
 
 type FormProps = {
-  HasError: boolean;
+  hasError: boolean;
 };
 
 export const Container = styled.div``;
@@ -32,7 +32,7 @@ export const SearchForm = styled.form<FormProps>`
     border: 2px solid ${(props) => props.theme["white"]};
 
     ${(props) =>
-      props.HasError &&
+      props.hasError &&
       css`
         border-color: ${(props) => props.theme["red-200"]};
       `}

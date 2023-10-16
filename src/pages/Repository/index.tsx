@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import * as S from "./styles";
-import { api } from "../../services/api";
-import { RepositoryProps, Issue } from "../../types";
+import { useRepoDetailsData } from "../../hooks/useRepoDetailsData";
 
 // This function shows the details of the list of repositories and issues
 // When clicking on an item in the issues list, it redirects to an external link
 // with the repository issue
 
 export function Repository() {
-  let params = useParams();
-  const repositoryParams = `${params.repository}/${params["*"]}`;
-
-  const [repository, setRepository] = useState<RepositoryProps | null>(null);
-  const [issues, setIssues] = useState<Issue[]>([]);
-
-  useEffect(() => {
-    api.get(`repos/${repositoryParams}`).then((response) => {
-      setRepository(response.data);
-    });
-    api.get(`repos/${repositoryParams}/issues`).then((response) => {
-      const FilterIssues = response.data.slice(0, 6);
-      setIssues(FilterIssues);
-    });
-  }, [repositoryParams]);
+  const { repository, issues } = useRepoDetailsData();
 
   return (
     <>
