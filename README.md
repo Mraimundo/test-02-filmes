@@ -2,6 +2,9 @@
 
 Esse projeto foi desenvolvido para demostrar as minhas habilidades técnicas. Trata-se de um projeto frontend, o projeto consiste na parte frontend(React) em listar os repositórios do github baseado em um campo de pesquisa e mostrar os detalhes do repositório ao clicar em um item da lista.
 
+OBS: Para bustar o repositório é necessário digitar no campo de busca o seguinte:
+Exemplo: Para buscar o repositorio de (react) buscaria desta foma: Autor do repostório e nome do repositório (autor/repositório) => (facebook/react) ou (vuejs/vue) e por ai vai...
+
 ## 🎨 Layout
 
 ![GithubFeed](https://github.com/Mraimundo/test-proteina-digital/assets/53385345/371615a3-bdda-4c5a-a213-aaf7af14578c)
